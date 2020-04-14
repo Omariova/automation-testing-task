@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="1" verbose="1" name="SignUp Suite" annotations="JDK" parallel="tests">
+
+    <test name="SignUp">
+        <classes>
+            <class name="tests.registration.RegisterTest"/>
+        </classes>
+    </test>
+
+    <test name="Login">
+        <classes>
+            <class name="tests.login.LoginTest"/>
+        </classes>
+    </test>
+</suite>

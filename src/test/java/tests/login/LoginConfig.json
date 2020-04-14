@@ -1,0 +1,4 @@
+{
+  "validUserData": "src/test/java/tests/test_data/valid-user.json",
+  "notValidUserData": "src/test/java/tests/test_data/not-valid-user.json"
+}
