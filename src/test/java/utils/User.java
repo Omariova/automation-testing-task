@@ -30,7 +30,9 @@ public class User {
         user.setPassword(userJson.get("password").toString());
         return user;
     }
-
+    public boolean isValidUser(){
+        return this.isValidFirstName() && this.isValidLastName() && this.isValidEmail() && this.isValidMobileNumber() && this.isValidPassword();
+    }
     public boolean isValidFirstName(){
         return Character.isUpperCase(this.firstName.charAt(0));
     }

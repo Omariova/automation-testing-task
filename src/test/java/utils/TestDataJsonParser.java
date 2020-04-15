@@ -15,6 +15,14 @@ public class TestDataJsonParser {
         return (JSONObject) getJsonTestData().get("notValidUser");
     }
 
+    public static JSONObject signUpAssertionValues(){
+        return (JSONObject) getJsonTestData().get("signUpAssertionValues");
+    }
+
+    public static JSONObject loginAssertionValues(){
+        return (JSONObject) getJsonTestData().get("loginAssertionValues");
+    }
+
     private static JSONObject getJsonTestData(){
         JSONObject jsonObject = null;
         File file = new File("src/test/java/tests/test_data/data.json");

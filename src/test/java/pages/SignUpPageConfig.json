@@ -6,6 +6,7 @@
     "emailInput": "//*[@id=\"headersignupform\"]/div[5]/label/input",
     "passwordInput": "//*[@id=\"headersignupform\"]/div[6]/label/input",
     "confirmPasswordInput": "//*[@id=\"headersignupform\"]/div[7]/label/input",
-    "signUpButton": "//*[@id=\"headersignupform\"]/div[8]/button"
+    "signUpButton": "//*[@id=\"headersignupform\"]/div[8]/button",
+    "accountButtonAfterLogin": "//*[@id=\"header-waypoint-sticky\"]/div[1]/div/div/div[2]/div/ul/li[3]"
   }
 }

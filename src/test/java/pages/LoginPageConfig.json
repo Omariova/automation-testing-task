@@ -4,7 +4,8 @@
     "myAccountLoginButton": "//*[@id=\"header-waypoint-sticky\"]/div[1]/div/div/div[2]/div/ul/li[3]/div/div/div/a[1]",
     "emailInput": "//*[@id=\"loginfrm\"]/div[3]/div[1]/label/input",
     "passwordInput": "//*[@id=\"loginfrm\"]/div[3]/div[2]/label/input",
-    "loginButton": "//*[@id=\"loginfrm\"]/button"
+    "loginButton": "//*[@id=\"loginfrm\"]/button",
+    "accountButtonAfterLogin": "//*[@id=\"header-waypoint-sticky\"]/div[1]/div/div/div[2]/div/ul/li[3]"
   }
 
 }

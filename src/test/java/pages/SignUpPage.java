@@ -44,4 +44,8 @@ public class SignUpPage {
     public WebElement signUpButton(WebDriver driver){
         return driver.findElement(By.xpath(locators.get("signUpButton").toString()));
     }
+    //My account button after login
+    public WebElement accountButtonAfterLogin(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("accountButtonAfterLogin").toString()));
+    }
 }

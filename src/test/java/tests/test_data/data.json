@@ -10,7 +10,13 @@
     "firstName": "Wael",
     "lastName": "Gomaa",
     "mobile": "+201122335566",
-    "email": "wgomaa@email.com",
+    "email": "wgomaa@hotmail.com",
     "password": "P@$$Word"
+  },
+  "signUpAssertionValues": {
+    "pageTitle": "My Account"
+  },
+  "loginAssertionValues": {
+    "pageTitle": "My Account"
   }
 }

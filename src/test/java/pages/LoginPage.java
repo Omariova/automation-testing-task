@@ -35,4 +35,8 @@ public class LoginPage {
     public WebElement loginButton(WebDriver driver){
         return driver.findElement(By.xpath(locators.get("loginButton").toString()));
     }
+
+    public WebElement accountButtonAfterLogin(WebDriver driver) {
+        return driver.findElement(By.xpath(locators.get("accountButtonAfterLogin").toString()));
+    }
 }
