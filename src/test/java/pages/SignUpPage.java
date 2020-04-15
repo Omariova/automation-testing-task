@@ -10,47 +10,38 @@ import java.io.File;
 
 public class SignUpPage {
 
-    private static WebElement element = null;
-    private static JSONObject jsonObject = PageConfigJsonParser.parser(new File("src/test/java/pages/SignUpPageConfig.json"));
+    private JSONObject locators;
 
-    //Returning page url from config file
-    public static String pageUrl(){
-        return jsonObject.get("url").toString();
+    public SignUpPage(){
+        this.locators = PageConfigJsonParser.locators(new File("src/test/java/pages/SignUpPageConfig.json"));
     }
 
     //First name input field
-    public static WebElement firstNameInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("firstNameInput").toString()));
-        return element;
+    public WebElement firstNameInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("firstNameInput").toString()));
     }
     //Last name input field
-    public static WebElement lastNameInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("lastNameInput").toString()));
-        return element;
+    public WebElement lastNameInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("lastNameInput").toString()));
     }
     //Mobile input field
-    public static WebElement mobileNumberInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("mobileNumberInput").toString()));
-        return element;
+    public WebElement mobileNumberInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("mobileNumberInput").toString()));
     }
     //Email input field
-    public static WebElement emailInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("emailInput").toString()));
-        return element;
+    public WebElement emailInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("emailInput").toString()));
     }
     //Password input field
-    public static WebElement passwordInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("passwordInput").toString()));
-        return element;
+    public WebElement passwordInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("passwordInput").toString()));
     }
     //Confirm password input field
-    public static WebElement confirmPasswordInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("confirmPasswordInput").toString()));
-        return element;
+    public WebElement confirmPasswordInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("confirmPasswordInput").toString()));
     }
     //Sign up button
-    public static WebElement signUpButton(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("signUpButton").toString()));
-        return element;
+    public WebElement signUpButton(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("signUpButton").toString()));
     }
 }

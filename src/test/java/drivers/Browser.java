@@ -3,41 +3,35 @@ package drivers;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utils.BrowserConfigJsonParser;
+import utils.AppConfigJsonParser;
 
 import java.io.File;
 
 public class Browser {
 
-    private static JSONObject jsonObject = BrowserConfigJsonParser.parser(new File("src/test/java/drivers/BrowserConfig.json"));
-    private static WebDriver driver;
+    private WebDriver driver;
+    private JSONObject drivers;
+    private String chromeDriverPath;
 
-    //Get a custom driver based on the browser name
-    public static WebDriver getBrowser(String browserName){
+    public Browser(){
+        drivers = AppConfigJsonParser.drivers();
+        chromeDriverPath = drivers.get("webdriver.chrome.driver").toString();
+    }
+    //Return a custom driver based on the browser name
+    public WebDriver getDriver(String browserName){
         switch (browserName){
             //Initialize chrome driver
             case "chrome":
-                if(driver == null){
-                    System.setProperty("webdriver.chrome.driver", jsonObject.get("webdriver.chrome.driver").toString());
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
+                if(this.driver == null){
+                    System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+                    this.driver = new ChromeDriver();
+                    this.driver.manage().window().maximize();
                     break;
                 }
              //Initialize firefox driver not implemented yet.
             case "firefox":
                 break;
         }
-        return driver;
-    }
-    //Close the driver
-    public static void closeBrowser(WebDriver driver){
-        if(driver != null) {
-            driver.quit();
-        }
-    }
-
-
-    public static void main(String args[]){
-        System.out.println(jsonObject.toJSONString());
+        return this.driver;
     }
 }

@@ -7,7 +7,12 @@ import java.io.File;
 import java.io.FileReader;
 
 public class PageConfigJsonParser {
-    public static JSONObject parser(File file){
+
+    public static JSONObject locators(File file){
+        return (JSONObject) parse(file).get("locators");
+    }
+
+    private static JSONObject parse(File file){
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = null;
         try{

@@ -1,0 +1,16 @@
+{
+  "notValidUser": {
+    "firstName": "Ahmed",
+    "lastName": "Ahmed",
+    "mobile": "+201122335566",
+    "email": "ahmedmohamed@email.com",
+    "password": "P@$$Word"
+  },
+  "validUser": {
+    "firstName": "Wael",
+    "lastName": "Gomaa",
+    "mobile": "+201122335566",
+    "email": "wgomaa@email.com",
+    "password": "P@$$Word"
+  }
+}

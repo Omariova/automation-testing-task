@@ -10,27 +10,29 @@ import java.io.File;
 
 public class LoginPage {
 
-    private static WebElement element;
-    private static JSONObject jsonObject = PageConfigJsonParser.parser(new File("src/test/java/pages/LoginPageConfig.json"));
+    private JSONObject locators;
 
-    //Returning page url from config file
-    public static String pageUrl(){
-        return jsonObject.get("url").toString();
+    public LoginPage() {
+        this.locators = PageConfigJsonParser.locators(new File("src/test/java/pages/LoginPageConfig.json"));
     }
 
-    public static WebElement emailInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("emailInput").toString()));
-        return element;
+    public WebElement myAccountButton(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("myAccountButton").toString()));
     }
 
-    public static WebElement passwordInput(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("passwordInput").toString()));
-        return element;
+    public WebElement myAccountLoginButton(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("myAccountLoginButton").toString()));
     }
 
-    public static WebElement loginButton(WebDriver driver){
-        element = driver.findElement(By.xpath(jsonObject.get("loginButton").toString()));
-        return element;
+    public WebElement emailInput(WebDriver driver){
+       return driver.findElement(By.xpath(locators.get("emailInput").toString()));
     }
 
+    public WebElement passwordInput(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("passwordInput").toString()));
+    }
+
+    public WebElement loginButton(WebDriver driver){
+        return driver.findElement(By.xpath(locators.get("loginButton").toString()));
+    }
 }
