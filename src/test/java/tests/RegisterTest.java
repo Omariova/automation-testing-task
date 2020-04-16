@@ -4,7 +4,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import drivers.Browser;
-import org.openqa.selenium.WebDriver;
+import drivers.ProxyDriver;
+import net.lightbody.bmp.core.har.Har;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -12,22 +13,20 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.SignUpPage;
-import utils.AppConfigJsonParser;
-import utils.ScreenShot;
-import utils.TestDataJsonParser;
-import utils.User;
+import utils.*;
 
 import java.io.File;
 
 public class RegisterTest {
 
-    private WebDriver driver;
+    private ProxyDriver proxyDriver;
     private ExtentReports extent;
     private ExtentTest logger;
 
     public void setupBrowser(){
-        this.driver = new Browser().getDriver("chrome");
-        this.driver.get(AppConfigJsonParser.url());
+
+        this.proxyDriver = new Browser().getProxyDriver("chrome");
+        this.proxyDriver.driver.get(AppConfigJsonParser.url());
     }
 
     @BeforeMethod
@@ -45,19 +44,16 @@ public class RegisterTest {
         {
             SignUpPage page = new SignUpPage();
             try{
-                page.firstNameInput(driver).sendKeys(user.getFirstName());
-                page.lastNameInput(driver).sendKeys(user.getLastName());
-                page.mobileNumberInput(driver).sendKeys(user.getMobile());
-                page.emailInput(driver).sendKeys(user.getEmail());
-                page.passwordInput(driver).sendKeys(user.getPassword());
-                page.confirmPasswordInput(driver).sendKeys(user.getPassword());
-                page.signUpButton(driver).submit();
+                this.proxyDriver.proxy.newHar("register");
+                page.register(user, this.proxyDriver.driver);
+                Har har = this.proxyDriver.proxy.getHar();
+                har.writeTo(new File("src/test/java/tests/RegisterTraffic.json"));
                 Thread.sleep(3000);
             }catch (Exception e){
                 e.printStackTrace();
             }
-            Assert.assertEquals(page.accountButtonAfterLogin(driver).getText().toLowerCase(), user.getFirstName().toLowerCase());
-            Assert.assertEquals(driver.getTitle().toLowerCase(), TestDataJsonParser.signUpAssertionValues().get("pageTitle").toString().toLowerCase());
+            Assert.assertEquals(page.afterRegisterAccountButtonText(this.proxyDriver.driver), user.getFirstName().toLowerCase());
+            Assert.assertEquals(page.title(this.proxyDriver.driver), page.titleExpectedValue());
         } else{
             Assert.fail("User Not Valid");
         }
@@ -68,10 +64,10 @@ public class RegisterTest {
             logger.log(LogStatus.PASS, "Test Case Passed is Register Test");
         }else if(result.getStatus() == ITestResult.FAILURE){
             logger.log(LogStatus.FAIL, "Test Case Failed is Register Test");
-            logger.log(LogStatus.FAIL, logger.addScreenCapture(ScreenShot.capture(driver, "RegisterTestCase")));
+            logger.log(LogStatus.FAIL, logger.addScreenCapture(ScreenShot.capture(this.proxyDriver.driver, "RegisterTestCase")));
         }
         extent.endTest(logger);
-        this.driver.quit();
+        this.proxyDriver.driver.quit();
     }
 
     @AfterTest
