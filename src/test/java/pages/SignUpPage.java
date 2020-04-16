@@ -58,6 +58,7 @@ public class SignUpPage {
         this.passwordInput(driver).sendKeys(user.getPassword());
         this.confirmPasswordInput(driver).sendKeys(user.getPassword());
         this.signUpButton(driver).submit();
+        TestDataJsonParser.addUserEmail(user.getEmail());
     }
 
     public String afterRegisterAccountButtonText(WebDriver driver){

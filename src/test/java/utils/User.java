@@ -53,7 +53,7 @@ public class User {
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z"+
                 "A-Z]{2,7}$";
         Pattern p = Pattern.compile(pattern);
-        return p.matcher(this.email).matches();
+        return p.matcher(this.email).matches() && !TestDataJsonParser.isUserExist(this.email);
     }
 
     public boolean isValidPassword(){
