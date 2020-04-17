@@ -12,13 +12,12 @@ These instructions will get you a copy of the task up and running on your local 
 
 You need to:
 
-1. Clone the repository.
+* Install Java JDK 11 and Maven 3
 
-2. Install Java JDK 11 and Maven 3
+* Run ```mvn install``` to install the libraries from pom.xml.
 
-3. Install the maven **pom.xml** file.
-
-4. Download suitable [**Chrome WebDriver**](https://chromedriver.chromium.org/downloads)
+* Download suitable [**Chrome WebDriver**](https://chromedriver.chromium.org/downloads) for your chrome version, 
+and locate it in *`src/test/java/tests/drivers`* then check AppConfig.json file to verify the configuration.
 
 
 ### Testing Framework Structure
@@ -71,10 +70,5 @@ run mvn -Dtest=LoginTest LoginTest
 * [**TestNG**](https://testng.org/doc/) - Testing Framework
 * [**BrowserMob Proxy**](https://github.com/lightbody/browsermob-proxy) - HTTP Network Traffic Tool
 * [**Extent Reports**](https://extentreports.com/) - Extent Reporting Framework
-
-
-
-Created by ***Omar Sayed***
-
 
 
