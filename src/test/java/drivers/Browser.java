@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import utils.AppConfigJsonParser;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class Browser {
 
@@ -33,6 +34,7 @@ public class Browser {
                     System.setProperty("webdriver.chrome.driver", chromeDriverPath);
                     this.driver = new ChromeDriver();
                     this.driver.manage().window().maximize();
+                    this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                     break;
                 }
              //Initialize firefox driver not implemented yet.
@@ -63,6 +65,7 @@ public class Browser {
                     this.proxyDriver.proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
                     this.proxyDriver.driver.manage().window().maximize();
+                    this.proxyDriver.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                     break;
                 }
                 //Initialize firefox driver not implemented yet.

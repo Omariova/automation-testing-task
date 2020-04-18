@@ -4,6 +4,9 @@ import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PageConfigJsonParser;
 import utils.TestDataJsonParser;
 
@@ -18,23 +21,23 @@ public class LoginPage {
     }
 
     public WebElement myAccountButton(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("myAccountButton").toString()));
+        return driver.findElement(By.className(locators.get("myAccountButton").toString()));
     }
 
     public WebElement myAccountLoginButton(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("myAccountLoginButton").toString()));
+        return driver.findElement(By.linkText(locators.get("myAccountLoginButton").toString()));
     }
 
     public WebElement emailInput(WebDriver driver){
-       return driver.findElement(By.xpath(locators.get("emailInput").toString()));
+       return driver.findElement(By.name(locators.get("emailInput").toString()));
     }
 
     public WebElement passwordInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("passwordInput").toString()));
+        return driver.findElement(By.name(locators.get("passwordInput").toString()));
     }
 
     public WebElement loginButton(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("loginButton").toString()));
+        return driver.findElement(By.className(locators.get("loginButton").toString()));
     }
 
     public WebElement accountButtonAfterLogin(WebDriver driver) {

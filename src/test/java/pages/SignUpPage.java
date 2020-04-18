@@ -19,31 +19,31 @@ public class SignUpPage {
     }
 
     public WebElement firstNameInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("firstNameInput").toString()));
+        return driver.findElement(By.name(locators.get("firstNameInput").toString()));
     }
 
     public WebElement lastNameInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("lastNameInput").toString()));
+        return driver.findElement(By.name(locators.get("lastNameInput").toString()));
     }
 
     public WebElement mobileNumberInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("mobileNumberInput").toString()));
+        return driver.findElement(By.name(locators.get("mobileNumberInput").toString()));
     }
 
     public WebElement emailInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("emailInput").toString()));
+        return driver.findElement(By.name(locators.get("emailInput").toString()));
     }
 
     public WebElement passwordInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("passwordInput").toString()));
+        return driver.findElement(By.name(locators.get("passwordInput").toString()));
     }
 
     public WebElement confirmPasswordInput(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("confirmPasswordInput").toString()));
+        return driver.findElement(By.name(locators.get("confirmPasswordInput").toString()));
     }
 
     public WebElement signUpButton(WebDriver driver){
-        return driver.findElement(By.xpath(locators.get("signUpButton").toString()));
+        return driver.findElement(By.className(locators.get("signUpButton").toString()));
     }
 
     public WebElement accountButtonAfterRegister(WebDriver driver){

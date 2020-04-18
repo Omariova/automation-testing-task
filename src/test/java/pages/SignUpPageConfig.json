@@ -1,12 +1,13 @@
 {
   "locators": {
-    "firstNameInput": "//*[@id=\"headersignupform\"]/div[3]/div[1]/div/label/input",
-    "lastNameInput": "//*[@id=\"headersignupform\"]/div[3]/div[2]/div/label/input",
-    "mobileNumberInput": "//*[@id=\"headersignupform\"]/div[4]/label/input",
-    "emailInput": "//*[@id=\"headersignupform\"]/div[5]/label/input",
-    "passwordInput": "//*[@id=\"headersignupform\"]/div[6]/label/input",
-    "confirmPasswordInput": "//*[@id=\"headersignupform\"]/div[7]/label/input",
-    "signUpButton": "//*[@id=\"headersignupform\"]/div[8]/button",
+    "firstNameInput": "firstname",
+    "lastNameInput": "lastname",
+    "mobileNumberInput": "phone",
+    "emailInput": "email",
+    "passwordInput": "password",
+    "confirmPasswordInput": "confirmpassword",
+    "signUpButton": "signupbtn",
     "accountButtonAfterLogin": "//*[@id=\"header-waypoint-sticky\"]/div[1]/div/div/div[2]/div/ul/li[3]"
   }
+
 }

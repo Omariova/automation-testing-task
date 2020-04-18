@@ -54,7 +54,6 @@ public class LoginTest {
         LoginPage page = new LoginPage();
         try{
             page.redirectToLoginPage(driver);
-            Thread.sleep(3000);
             page.login(user.getEmail(), user.getPassword(), driver);
             Thread.sleep(3000);
         }catch (Exception e){

@@ -2,6 +2,6 @@
   "url": "https://www.phptravels.net/register",
   "drivers": {
     "webdriver.chrome.driver": "src/test/java/drivers/chromedriver.exe",
-    "webdriver.firefox.driver":"src\/test\/java\/drivers\/chromedriver.exe"
+    "webdriver.firefox.driver":"src/test/java/drivers/chromedriver.exe"
   }
 }

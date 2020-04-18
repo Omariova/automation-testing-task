@@ -57,7 +57,7 @@ public class User {
     }
 
     public boolean isValidPassword(){
-        Pattern p = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).+$");
+        Pattern p = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).{8,}$");
         return p.matcher(this.password).matches();
     }
 
@@ -100,4 +100,5 @@ public class User {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
+
 }
