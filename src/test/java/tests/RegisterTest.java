@@ -45,9 +45,13 @@ public class RegisterTest {
             SignUpPage page = new SignUpPage();
             try{
                 this.proxyDriver.proxy.newHar("register");
-                page.register(user, this.proxyDriver.driver);
+                page.register(user, this.proxyDriver);
                 Har har = this.proxyDriver.proxy.getHar();
                 har.writeTo(new File("src/test/java/tests/RegisterTraffic.json"));
+                RegisterTrafficParser.logHTTPRequest(
+                        "src/test/java/tests/RegisterTraffic.json",
+                        "src/test/java/tests/SignUp.json",
+                        "/signup"                        );
                 Thread.sleep(3000);
             }catch (Exception e){
                 e.printStackTrace();

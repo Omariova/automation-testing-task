@@ -1,8 +1,13 @@
 package drivers;
 
+import io.netty.handler.codec.http.HttpRequest;
+import io.netty.handler.codec.http.HttpResponse;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.client.ClientUtil;
+import net.lightbody.bmp.filters.RequestFilter;
 import net.lightbody.bmp.proxy.CaptureType;
+import net.lightbody.bmp.util.HttpMessageContents;
+import net.lightbody.bmp.util.HttpMessageInfo;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
@@ -62,7 +67,16 @@ public class Browser {
 
                     this.proxyDriver.driver = new ChromeDriver(capabilities);
 
-                    this.proxyDriver.proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
+                    this.proxyDriver.proxy.enableHarCaptureTypes(
+                            CaptureType.REQUEST_CONTENT,
+                            CaptureType.RESPONSE_CONTENT,
+                            CaptureType.REQUEST_HEADERS,
+                            CaptureType.RESPONSE_HEADERS,
+                            CaptureType.REQUEST_BINARY_CONTENT,
+                            CaptureType.RESPONSE_BINARY_CONTENT,
+                            CaptureType.REQUEST_COOKIES,
+                            CaptureType.RESPONSE_COOKIES
+                    );
 
                     this.proxyDriver.driver.manage().window().maximize();
                     this.proxyDriver.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);

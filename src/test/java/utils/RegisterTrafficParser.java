@@ -7,14 +7,25 @@ import org.json.simple.parser.JSONParser;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Iterator;
 
 public class RegisterTrafficParser {
 
-    public static void logHTTPRequest(String source, String destination, int index){
-        writeHarEntryData(destination, getHarEntryData(source, index));
+    public static void logHTTPRequest(String source, String destination, String endPoint){
+        JSONObject request = null;
+        JSONArray entries = getHarEntryData(source);
+        Iterator<JSONObject> iterator = entries.iterator();
+        while (iterator.hasNext()){
+            request = (JSONObject)iterator.next().get("request");
+            String url = request.get("url").toString();
+            if(url.endsWith(endPoint)){
+                writeHarEntryData(destination, request);
+            }
+        }
+
     }
 
-    private static JSONObject getHarEntryData(String filePath, int index){
+    private static JSONArray getHarEntryData(String filePath){
         JSONParser parser = new JSONParser();
         JSONObject har , log = null;
         JSONArray entries = null;
@@ -28,7 +39,7 @@ public class RegisterTrafficParser {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return (JSONObject) entries.get(index);
+        return entries;
     }
 
     private static void writeHarEntryData(String filePath, JSONObject json){
