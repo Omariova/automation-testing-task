@@ -58,8 +58,9 @@ The Registration and Login test cases will run sequencially.
 - The **Sign Up Request and Response** saved in *`src/test/java/tests/RegisterTraffic.json`*.
 
 #### Login with not registered email scenario:
+change the data.json email and enter not registered email
 ```
-run mvn -Dtest=LoginTest LoginTest
+run mvn test -Dtest=LoginTest 
 ```
 - The **Reports** will be generated in *`src/test/java/tests/reports`* and marked as failed with screen shots.
 
